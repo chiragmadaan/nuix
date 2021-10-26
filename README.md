@@ -2,7 +2,7 @@
 
 ## Summary
 Project for assessment by Nuix  
-Selenium Page Object Model framework using JavaScript and Mocha.  
+Selenium framework using JavaScript and Mocha.  
 Design pattern: Page Object Model, for maintenance, reusability, and readability.
 
 ## Set-up

@@ -1,4 +1,4 @@
-const {Key} = require('selenium-webdriver');
+// const {Key} = require('selenium-webdriver');
 var BaseClass = require ('../pages/baseclass');
 
 class HomePage extends BaseClass {
@@ -10,9 +10,33 @@ class HomePage extends BaseClass {
     locationbarID = 'ss';
     calendarCSS = 'div.xp__dates__checkin';
     today = 'bui-calendar__date--today';
+    checkinMonthName = 'checkin_month';
+    checkinDayName = 'checkin_monthday';
+    checkinYearName = 'checkin_year';
+    checkoutMonthName = 'checkout_month';
+    checkoutDayName = 'checkout_monthday';
+    checkoutYearName = 'checkout_year';
+    searchButton = '//button[contains(.,"Search")]';
 
     async enter_search_text(text){
         await this.enterTextById(this.locationbarID, text);
+    }
+
+    async enter_checkin_details(d,m,y){
+        // await this.enterTextByName(this.checkinYearName, y);
+        // await this.enterTextByName(this.checkinMonthName, m);
+        // await this.enterTextByName(this.checkinDayName, d);
+        await this.clickByClassName(this.today);
+    }
+
+    async enter_checkout_details(d,m,y){
+        await this.enterTextByName(this.checkoutYearName, y);
+        await this.enterTextByName(this.checkoutMonthName, m);
+        await this.enterTextByName(this.checkoutDayName, d);
+    }
+
+    async click_search_button(){
+        await this.clickByXPath(this.searchButton);
     }
 
     async click_sign_in_button(){

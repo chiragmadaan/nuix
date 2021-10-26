@@ -5,10 +5,11 @@ class SignInPage extends BaseClass {
 
     usernameID = 'username';
     usernameAlert = 'username-note';
-    usernameAlertMessage = 'Please enter your email address';
+    usernameAlertMessage = 'email address';
     passwordID = 'password';
     passwordAlert = 'password-note';
-    passwordAlertMessage = 'Please enter your Booking.com password';
+    passwordAlertMessage = 'nter your Booking.com password';
+    incorrectPasswordAlertMessage = "The email and password combination you entered doesn't match";
     continueWithEmailButton = '//button[contains(.,"Continue with email")]';
     signinButton = '//button[contains(.,"Sign in")]';
     signinVerificationLinkButton = '//button[contains(.,"Sign in with a verification link")]';
@@ -35,14 +36,23 @@ class SignInPage extends BaseClass {
         await this.clickByXPath(this.signinVerificationLinkButton);
     }
 
-    async verify_username_alert(){
-        const msg = await this.getTextById(this.usernameAlert);
-        expect(msg).to.be.equal(this.usernameAlertMessage);
+    async click_back_to_sign_in_button(){
+        await this.clickByXPath(this.backToSigninButton);
     }
 
-    async verify_password_alert(){
+    async verify_username_alert(){
+        const msg = await this.getTextById(this.usernameAlert);
+        expect(msg).to.include(this.usernameAlertMessage);
+    }
+
+    async verify_missing_password_alert(){
         const msg = await this.getTextById(this.passwordAlert);
-        expect(msg).to.be.equal(this.passwordAlertMessage);
+        expect(msg).to.include(this.passwordAlertMessage);
+    }
+
+    async verify_incorrect_password_alert(){
+        const msg = await this.getTextById(this.passwordAlert);
+        expect(msg).to.include(this.incorrectPasswordAlertMessage);
     }
 }
 

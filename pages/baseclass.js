@@ -34,6 +34,10 @@ class BaseClass{
         await driver.findElement(By.id(id)).sendKeys(text);
     }
 
+    async enterTextByName(name, text){
+        await driver.findElement(By.name(name)).sendKeys(text);
+    }
+
     async clickById(id){
         await driver.findElement(By.id(id)).click();
     }
@@ -68,6 +72,10 @@ class BaseClass{
 
     getTextById(id){
         return driver.findElement(By.id(id)).getText();
+    }
+
+    getHeading(){
+        return driver.findElement(By.xpath('//h1')).getText();
     }
 
     sleep(seconds){

@@ -1,5 +1,4 @@
-// const {Key} = require('selenium-webdriver');
-var BaseClass = require ('../pages/baseclass');
+var BaseClass = require ('./baseclass');
 
 class HomePage extends BaseClass {
 
@@ -22,10 +21,7 @@ class HomePage extends BaseClass {
         await this.enterTextById(this.locationbarID, text);
     }
 
-    async enter_checkin_details(d,m,y){
-        // await this.enterTextByName(this.checkinYearName, y);
-        // await this.enterTextByName(this.checkinMonthName, m);
-        // await this.enterTextByName(this.checkinDayName, d);
+    async enter_checkin_details(){
         await this.clickByClassName(this.today);
     }
 

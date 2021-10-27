@@ -30,5 +30,6 @@ describe('Search for car rentals', () => {
         expect(await carrentalssearchresultspage.get_top_results_large_luggage()).to.include('Large bag');
         expect(await carrentalssearchresultspage.get_top_results_small_luggage()).to.include('Small bag');
         expect(await carrentalssearchresultspage.get_top_results_mileage()).to.be.equal('Unlimited mileage');
+        expect(await carrentalssearchresultspage.get_top_results_price()).to.include('$');
     })
 })

@@ -8,6 +8,7 @@ class CarRentalsSearchResultsPage extends BaseClass {
     largeLuggageXpath = '//*[@data-testid="specs-large-bags-container"]';
     smallLuggageXpath = '//*[@data-testid="specs-small-bags-container"]';
     mileageXpath = '//*[@data-testid="specs-mileage-container"]';
+    priceXpath = '//*[@data-testid="total-price"]';
 
     async click_top_result(){
         await this.clickByXPath(this.titleLinkXpath);
@@ -27,6 +28,10 @@ class CarRentalsSearchResultsPage extends BaseClass {
 
     get_top_results_mileage(){
         return driver.findElement(By.xpath(this.mileageXpath)).getText();
+    }
+
+    get_top_results_price(){
+        return driver.findElement(By.xpath(this.priceXpath)).getText();
     }
 
 }

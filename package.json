@@ -4,16 +4,18 @@
   "description": "Frontend tests for booking.com",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests --timeout 60000"
+    "test": "mocha tests --timeout 60000",
+    "bdd_test": "node_modules/.bin/cucumber-js features -f @cucumber/pretty-formatter"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cucumber/cucumber": "^7.0.0",
+    "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "chai": "^4.3.4",
-    "chromedriver": "^94.0.0",
+    "chromedriver": "^95.0.0",
     "mocha": "^9.1.1",
-    "selenium-webdriver": "^4.0.0-rc-1",
-    "supertest": "^6.1.6"
+    "selenium-webdriver": "^4.0.0-rc-1"
   }
 }
